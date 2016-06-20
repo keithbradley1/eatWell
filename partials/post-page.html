@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <nav class="navbar">
+    <h1>eatWell</h1>
+    <h4>post your dinning experience so others know what they can eat</h4>
+  </nav>
+  <div class="row">
+    <div class="col-md-8">
+      <div>
+        <h4>{{(key)venue.name}}</h4>
+      </div>
+      <div class="main">
+        <h4 class="search-title">{{post.heading}}</h4>
+      </div>
+      <form ng-model="">
+        <textarea class="form-control" rows="3"></textarea>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <div class="side-bar">
+        <h4>menu hacks</h4>
+        <div class="posts" ng-repeat="posts from firebase | limitTo:4">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
