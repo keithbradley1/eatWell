@@ -5,22 +5,23 @@
   </nav>
   <div class="row">
     <div class="col-md-8">
-      <div>
-        <h4>{{(key)venue.name}}</h4>
-      </div>
       <div class="main">
-        <h4 class="search-title">{{post.heading}}</h4>
+        <div>
+          <h4 class="search-title">{{post.heading}}</h4>
+        </div>
+        <div>
+          <h4>{{post.venueName}}</h4>
+        </div>
+        <form ng-model"writePost">
+          <textarea class="form-control" rows="3" placeholder="write your post here.." ></textarea>
+        </form>
       </div>
-      <form ng-model="">
-        <textarea class="form-control" rows="3"></textarea>
-      </form>
     </div>
     <div class="col-md-4">
       <div class="side-bar">
         <h4>menu hacks</h4>
-        <div class="posts" ng-repeat="posts from firebase | limitTo:4">
+        <!-- <div class="posts" ng-repeat="posts from firebase | limitTo:4"> -->
         </div>
       </div>
-    </div>
   </div>
 </div>

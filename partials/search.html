@@ -1,0 +1,30 @@
+<nav class="navbar">
+  <h1>eatWell</h1>
+  <h4>post your dinning experience so others know what they can eat</h4>
+</nav>
+<div class="row">
+  <div class="col-md-8">
+    <div class="main">
+      <h4 class="search-title">{{search.heading}}</h4>
+      <form class="form-inline" ng-submit="fetch()">
+        <div class="form-group">
+          <input type="text" class="form-control" id="resutaurant-name" ng-model="name" class="form-control" placeholder="search restaurant" autofocus />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="resutaurant-location" ng-model="near" class="form-control" placeholder="near" />
+        </div>
+        <button class="btn" type="submit">Submit</button>
+      </form>
+      <div class="api-results" ng-repeat="venue in details.data.response.venues | limitTo:4">
+        <a ng-click="search.chooseVenue(venue.name)" href="/#/post-page"><p>{{venue.name}} at {{venue.location.address}}</p></a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="side-bar">
+      <h4>menu hacks</h4>
+      <!-- <div class="posts" ng-repeat="venue in details.data.response.venues | limitTo:4">
+      </div> -->
+    </div>
+  </div>
+</div>
