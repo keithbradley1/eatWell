@@ -4,7 +4,24 @@ angular.module('myApp')
     const postsRef = db.ref("posts");
     const usersRef = db.ref("users");
 
+    let currentUser = null
+    // Listener that fires route to search-page on logout or login state of change
+    firebase.auth().onAuthStateChanged(function(user) {
+      console.log("fired state of change function on FirebaseFactory.js");
+      if (user) {
+        currentUser = user;
+        $location.path('/search');
+        $timeout()
+      } else {
+        currentUser = null;
+        $location.path('/');
+        $timeout()
+      }
+    });
+
     return {
+      getUser: () => currentUsr,
+
       // getPin: id => db.ref(`pins/${id}`).once("value").then(snapshot => snapshot.val()),
       // listenPins: listener => pinsRef.on("value", snapshot => listener(snapshot.val())),
       // postPin: pin => $timeout().then(() => {
@@ -24,21 +41,8 @@ angular.module('myApp')
 
 
 
-    // let currentUser = null
-
-    // // Listener that fires route to search-page on logout or login state of change
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //   console.log("fired state of change function on FirebaseFactory.js");
-    //   if (user) {
-    //     currentUser = user;
-    //     $location.path('/search');
-    //     $timeout()
-    //   } else {
-    //     currentUser = null;
-    //     $location.path('/');
-    //     $timeout()
-    //   }
-    // });
+      // returning currentUser so it can be accessed through 'FirebaseFactory' in other files
+})
 
     // return {
     //   // register function
@@ -68,14 +72,9 @@ angular.module('myApp')
       //   });
       // },
 
-    //   // returning currentUser so it can be accessed through 'FirebaseFactory' in other files
-    //   getUser () {
-    //     return currentUser;
-    //   }
 
     // }
 
-})
 
 
 

@@ -1,9 +1,18 @@
 'use strict';
   angular.module('myApp')
-    .factory('PostFactory', FirebaseFactory => {
+    .factory('PostFactory', (FirebaseFactory) => {
       let venue = null;
       let currentUserId = "";
 
+      return {
+        setVenue: (newVenue) => {
+          venue = newVenue;
+        },
+
+        getVenue: () => {
+          return venue;
+        }
+      }
       return {
         setUserId: uid => currentUserId = uid,
         listenPosts: listener => FirebaseFactory.listenPosts(post => {
@@ -20,15 +29,6 @@
       };
 
 
-      return {
-        setVenue: (newVenue) => {
-          venue = newVenue;
-        },
-
-        getVenue: () => {
-          return venue;
-        }
-      }
 
 
   });
