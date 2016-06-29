@@ -1,9 +1,21 @@
-  angular.module('myApp')
-      .config(function(){
-          firebase.initializeApp({
-            apiKey: "AIzaSyDkx2yEUP66SkrGIEbRgJjYnU4XYBuqjYY",
-            authDomain: "eatwell-59bca.firebaseapp.com",
-            databaseURL: "https://eatwell-59bca.firebaseio.com",
-            storageBucket: "",
-          })
-      }
+angular.module('myApp')
+  .config($routeProvider => {
+    $routeProvider
+      .when('/login', {
+        controller: 'LoginCtrl',
+        controllerAs: 'auth',
+        templateUrl: '/partials/login.html'
+      })
+      .when('/create-user', {
+        controller: 'RegisterCtrl',
+        controllerAs: 'auth',
+        templateUrl: '/partials/login.html'
+      })
+      .when("/logout", {
+        controller: "LogoutCtrl"
+        // templateUrl: "/partials/landing.html"
+      })
+      .otherwise('/')
+    })
+
+
