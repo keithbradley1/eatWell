@@ -1,10 +1,22 @@
 <div class="container-fluid">
-  <nav class="navbar">
-    <h1>eatWell</h1>
-    <h4>post your dinning experience so others know what they can eat</h4>
-  </nav>
   <div class="row">
-    <div class="col-md-8">
+    <div class="navbar">
+      <div class="col-sm-9">
+        <nav class="">
+          <h1>eatWell</h1>
+          <h4>post your dinning experience so others know what they can eat</h4>
+        </nav>
+      </div>
+      <div class="col-sm-3">
+        <nav class="">
+        <a ng-click="auth.signOut()" href="/#/auth"><p>logout</p></a>
+          <h4 class="">{{post.currentUser.email}}</h4>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8">
       <div class="main">
         <div>
           <h4 class="search-title">{{post.heading}}</h4>
@@ -12,16 +24,45 @@
         <div>
           <h4>{{post.venueName}}</h4>
         </div>
-        <form ng-model"writePost">
-          <textarea class="form-control" rows="3" placeholder="write your post here.." ></textarea>
+        <form ng-submit="post.submit()">
+          <textarea ng-model="post.newPost.review" class="form-control" rows="3" placeholder="write your post here.." ></textarea>
+          <h4>select tags for your diet needs </h4>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Vegan
+            </label>
+            <label>
+              <input type="checkbox"> HCLF
+            </label>
+            <label>
+              <input type="checkbox"> Whole 30
+            </label>
+            <label>
+              <input type="checkbox"> Whole Plant
+            </label>
+            <label>
+              <input type="checkbox"> Paleo / Primal
+            </label>
+            <label>
+              <input type="checkbox"> Southbeach
+            </label>
+            <label>
+              <input type="checkbox"> Gluten Free / Celiac Safe
+            </label>
+            <label>
+              <input type="checkbox"> Frutarian
+            </label>
+            <label>
+              <input type="checkbox"> Raw Vegan
+            </label>
+          </div>
         </form>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="side-bar">
-        <h4>menu hacks</h4>
-        <!-- <div class="posts" ng-repeat="posts from firebase | limitTo:4"> -->
+        <div class="md-col-4" ng-repeat="(key, post) in post.list">
+          <h3>{{post.review}}</h3>
+          <button class="btn" ng-click="post.delete(key)">Delete</button>
+          <button class="btn" ng-click="post.edit(key, post)">Edit</button>
         </div>
       </div>
+    </div>
   </div>
 </div>

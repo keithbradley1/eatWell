@@ -1,6 +1,6 @@
 "use strict"
 
-angular.module('myApp', ['ngRoute'])
+angular.module('myApp')
   .config(($routeProvider) => {
     $routeProvider
       .when('/post-page', {
@@ -8,7 +8,7 @@ angular.module('myApp', ['ngRoute'])
         controllerAs: 'post',
         templateUrl: 'partials/post-page.html'
       })
-      .when('/', {
+      .when('/search', {
         controller: 'SearchCtrl',
         controllerAs: 'search',
         templateUrl: '/partials/search.html'

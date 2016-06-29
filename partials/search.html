@@ -1,9 +1,21 @@
-<nav class="navbar">
-  <h1>eatWell</h1>
-  <h4>post your dinning experience so others know what they can eat</h4>
-</nav>
 <div class="row">
-  <div class="col-md-8">
+  <div class="navbar">
+    <div class="col-sm-9">
+      <nav class="">
+        <h1>eatWell</h1>
+        <h4>post your dinning experience so others know what they can eat</h4>
+      </nav>
+    </div>
+    <div class="col-sm-3">
+      <nav class="">
+        <a ng-click="auth.signOut()" href="/#/auth"><p>logout</p></a>
+        <h4 class="">{{search.currentUser.email}}</h4>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
     <div class="main">
       <h4 class="search-title">{{search.heading}}</h4>
       <form class="form-inline" ng-submit="fetch()">
@@ -13,18 +25,41 @@
         <div class="form-group">
           <input type="text" class="form-control" id="resutaurant-location" ng-model="near" class="form-control" placeholder="near" />
         </div>
+        <h4>select tags for your diet needs</h4>
+        <div class="checkbox">
+        <label>
+          <input type="checkbox"> Vegan
+        </label>
+        <label>
+          <input type="checkbox"> HCLF
+        </label>
+        <label>
+          <input type="checkbox"> Whole 30
+        </label>
+        <label>
+          <input type="checkbox"> Whole Plant
+        </label>
+        <label>
+          <input type="checkbox"> Paleo / Primal
+        </label>
+        <label>
+          <input type="checkbox"> Southbeach
+        </label>
+        <label>
+          <input type="checkbox"> Gluten Free / Celiac Safe
+        </label>
+        <label>
+          <input type="checkbox"> Frutarian
+        </label>
+        <label>
+          <input type="checkbox"> Raw Vegan
+        </label>
+        </div>
         <button class="btn" type="submit">Submit</button>
       </form>
       <div class="api-results" ng-repeat="venue in details.data.response.venues | limitTo:4">
         <a ng-click="search.chooseVenue(venue.name)" href="/#/post-page"><p>{{venue.name}} at {{venue.location.address}}</p></a>
       </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="side-bar">
-      <h4>menu hacks</h4>
-      <!-- <div class="posts" ng-repeat="venue in details.data.response.venues | limitTo:4">
-      </div> -->
     </div>
   </div>
 </div>
