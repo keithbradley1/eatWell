@@ -1,9 +1,9 @@
 'use strict'
 angular.module('myApp')
-  .controller('PostCtrl', function($scope, $http, PostFactory) {
+  .controller('PostCtrl', function($scope, $http, PostFactory, setVenueFactory, tagFactory) {
     const post = this;
     post.heading = 'create a post';
-    post.venueName = PostFactory.getVenue();
+    post.venueName = setVenueFactory.getVenue();
 
     // Listener that fires get user on logout or login state of change
     firebase.auth().onAuthStateChanged(function(user) {
@@ -25,24 +25,37 @@ angular.module('myApp')
       // console.log(post );
     };
 
-    // post.editing = false;
-    // let editKey = null;
+    posts.goToPost = (postId) => {
+      tagFactory.setPostId(postId);
+      $location.path("/tag");
+    };
 
-    // PostFactory.listenPost(data => {
-    //   post.list = data;
-    //   $timeout();
-    // });
+    posts.submit = () => PostFactory.createPost(posts.newPost).then(() => posts.newPost = null);
+    posts.deletePost = (postId) => PostFactory.removePost(postId);
+    posts.editPost = () => {
 
-    // post.submit = () => PostFactory.createPost(post.newPost).then(() => post.newPost = null);
-    // post.delete = (key) => PostFactory.deletePost(key).then(() => post.newPost = null);
-    // post.update = () => PostFactory.updatePost(editKey, post.newPost);
-    // post.edit = (key, post) => {
-    //   post.editing = true;
-    //   editKey = key;
-    //   post.newPost = post;
-    //   PostFactory.deletePost(key);
-    // };
+    };
+
+    PostFactory.listenPosts(data => {
+      posts.list = data;
+      $timeout();
+    });
 
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

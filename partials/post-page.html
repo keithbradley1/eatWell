@@ -1,4 +1,66 @@
-<div class="container-fluid">
+<form name="form" ng-submit="posts.submit()">
+  <a href="#/logout">Logout</a>
+  <div class="container">
+    <div class="row">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input class="col-md-4" id="title" type="text" placeholder="Name Your New Post" required ng-model="posts.newPost.title">
+        <label for="URL">URL</label>
+        <div class="col-md-1"></div>
+        <a href="#/" class="btn btn-danger col-md-2">Cancel</a>
+        <div class="col-md-1"></div>
+        <button type="submit" class="btn btn-primary col-md-2">Submit</button>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+  </div>
+</form>
+<h1>Someone's Posts</h1>
+
+<div ng-repeat="(key, post) in posts.list" ng-click="posts.goToPost(key)">
+  <h3>{{post.title}}</h3>
+  <button class="btn btn-warning col-md-d" ng-click="posts.editPost(key); $event.stopPropagation()">Edit</button>
+  <button class="btn btn-danger col-md-d" ng-click="posts.deletePost(key); $event.stopPropagation()">Delete</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container-fluid">
   <div class="row">
     <div class="navbar">
       <div class="col-sm-9">
@@ -16,7 +78,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-12">
       <div class="main">
         <div>
           <h4 class="search-title">{{post.heading}}</h4>
@@ -25,7 +87,7 @@
           <h4>{{post.venueName}}</h4>
         </div>
         <form ng-submit="post.submit()">
-          <textarea ng-model="post.newPost.review" class="form-control" rows="3" placeholder="write your post here.." ></textarea>
+          <textarea ng-model="posts.newPost" id='newPost' class="form-control" rows="3" placeholder="write your post here.." ></textarea>
           <h4>select tags for your diet needs </h4>
           <div class="checkbox">
             <label>
@@ -47,7 +109,7 @@
               <input type="checkbox"> Southbeach
             </label>
             <label>
-              <input type="checkbox"> Gluten Free / Celiac Safe
+              <input type="checkbox"> Gluten Free
             </label>
             <label>
               <input type="checkbox"> Frutarian
@@ -55,14 +117,15 @@
             <label>
               <input type="checkbox"> Raw Vegan
             </label>
+            <button type='submit' class="btn">submit</button>
           </div>
         </form>
-        <div class="md-col-4" ng-repeat="(key, post) in post.list">
-          <h3>{{post.review}}</h3>
+        <div ng-repeat="(key, post) in post.list">
+          <h3>{{posts.newPost}}</h3>
           <button class="btn" ng-click="post.delete(key)">Delete</button>
           <button class="btn" ng-click="post.edit(key, post)">Edit</button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->

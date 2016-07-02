@@ -13,7 +13,12 @@ angular.module('myApp')
         controllerAs: 'search',
         templateUrl: '/partials/search.html'
       })
-      .otherwise('/')
+      .when("/tags", {
+        controller: "TagCtrl",
+        controllerAs: "tags",
+        templateUrl: "partials/tags.html"
+      });
+      // .otherwise('/')
     })
 
 
