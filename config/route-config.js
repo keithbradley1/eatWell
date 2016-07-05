@@ -16,7 +16,7 @@ angular.module('myApp')
       .when("/tags", {
         controller: "TagCtrl",
         controllerAs: "tags",
-        templateUrl: "partials/tags.html"
+        templateUrl: "partials/post-page.html"
       });
       // .otherwise('/')
     })

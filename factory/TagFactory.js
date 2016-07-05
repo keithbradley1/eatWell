@@ -13,7 +13,7 @@ angular.module("myApp")
         listener(tags);
       }),
       createTag: (newTag) =>
-        FirebaseFactory.postPin(Object.assign(newTag, {uid:AuthFactory.user(), postdid:currentPostId})),
+        FirebaseFactory.postTag(Object.assign(newTag, {uid:AuthFactory.user(), postdid:currentPostId})),
 
       deleteTag: id => FirebaseFactory.deleteTag(id),
       updateTag: (id, data) => db.ref(`tags/${id}`).update(data)

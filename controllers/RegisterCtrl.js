@@ -1,13 +1,13 @@
 angular.module("myApp")
-  .controller("registerCtrl", function(AuthFactory, PostFactory, $location, $timeout) {
+  .controller("RegisterCtrl", function(AuthFactory, FirebaseFactory, PostFactory, $location, $timeout) {
     const auth = this;
-    auth.actionLabel = "Register";
+    auth.heading = "Register";
 
     auth.confirm = () =>
       AuthFactory.register(auth.user.email, auth.user.password)
         .then(user => {
           PostFactory.setUserId(user.uid);
-          $location.path("/post");
+          $location.path("/search");
           $timeout();
         }).catch(alert);
   });

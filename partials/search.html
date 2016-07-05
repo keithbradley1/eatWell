@@ -25,36 +25,7 @@
         <div class="form-group">
           <input type="text" class="form-control" id="resutaurant-location" ng-model="near" class="form-control" placeholder="near" />
         </div>
-        <h4>select tags for your diet needs</h4>
-        <div class="checkbox">
-        <label>
-          <input type="checkbox"> Vegan
-        </label>
-        <label>
-          <input type="checkbox"> HCLF
-        </label>
-        <label>
-          <input type="checkbox"> Whole 30
-        </label>
-        <label>
-          <input type="checkbox"> Whole Plant
-        </label>
-        <label>
-          <input type="checkbox"> Paleo / Primal
-        </label>
-        <label>
-          <input type="checkbox"> Southbeach
-        </label>
-        <label>
-          <input type="checkbox"> Gluten Free
-        </label>
-        <label>
-          <input type="checkbox"> Frutarian
-        </label>
-        <label>
-          <input type="checkbox"> Raw Vegan
-        </label>
-        </div>
+
         <button class="btn" type="submit">Submit</button>
       </form>
       <div class="api-results" ng-repeat="venue in details.data.response.venues | limitTo:4">

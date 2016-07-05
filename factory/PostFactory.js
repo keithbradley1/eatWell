@@ -1,17 +1,17 @@
 'use strict';
   angular.module('myApp')
-    .factory('PostFactory', (FirebaseFactory, setVenueFactory) => {
+    .factory('PostFactory', (FirebaseFactory, setVenueFactory, SearchFactory) => {
       let currentUserId = "";
 
       return {
         setUserId: uid => currentUserId = uid,
-        listenPosts: listener => FirebaseFactory.listenPosts(posts => {
-          for(const bid in posts) {
-            if(posts[bid].uid !== currentUserId) {
-              delete posts[bid];
+        listenPosts: listener => FirebaseFactory.listenPosts(post => {
+          for(const bid in post) {
+            if(post[bid].uid !== currentUserId) {
+              delete post[bid];
             }
           }
-          listener(posts);
+          listener(post);
         }),
         removePost: postId => FirebaseFactory.deleteUserPosts(postId),
         createPost: newPost =>

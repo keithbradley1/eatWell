@@ -2,7 +2,7 @@ angular.module('myApp')
   .controller('LoginCtrl', function ($location, AuthFactory, FirebaseFactory, PostFactory, $timeout)
      {
     const auth = this // auth is controllerAS
-    auth.heading = 'login or create a user';
+    auth.heading = 'sign in here';
     auth.user = {};
 
     auth.confirm = () => {
@@ -10,7 +10,7 @@ angular.module('myApp')
       AuthFactory.login(auth.user.email, auth.user.password)
         .then(user => {
           PostFactory.setUserId(user.uid);
-          $location.path("/search");
+          $location.path("/login");
           $timeout();
         }).catch(alert);
       }

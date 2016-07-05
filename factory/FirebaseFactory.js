@@ -8,7 +8,7 @@ angular.module('myApp')
     let currentUser = null
     // Listener that fires route to search-page on logout or login state of change
     firebase.auth().onAuthStateChanged(function(user) {
-      console.log("fired state of change function on FirebaseFactory.js");
+      // console.log("fired state of change function on FirebaseFactory.js");
       if (user) {
         currentUser = user;
         $location.path('/search');
