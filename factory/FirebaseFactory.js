@@ -2,12 +2,13 @@ angular.module('myApp')
   .factory('FirebaseFactory', ($location, $timeout) => {
     const db = firebase.database();
     const postsRef = db.ref("posts");
+    const tagsRef = db.ref("tags");
     const usersRef = db.ref("users");
 
     let currentUser = null
     // Listener that fires route to search-page on logout or login state of change
     firebase.auth().onAuthStateChanged(function(user) {
-      console.log("fired state of change function on FirebaseFactory.js");
+      // console.log("fired state of change function on FirebaseFactory.js");
       if (user) {
         currentUser = user;
         $location.path('/search');
@@ -22,13 +23,13 @@ angular.module('myApp')
     return {
       getUser: () => currentUsr,
 
-      // getPin: id => db.ref(`pins/${id}`).once("value").then(snapshot => snapshot.val()),
-      // listenPins: listener => pinsRef.on("value", snapshot => listener(snapshot.val())),
-      // postPin: pin => $timeout().then(() => {
-      //   const newKeyId = pinsRef.push().key;
-      //   pinsRef.update({[newKeyId]:pin});
-      // }),
-      // deletePin: id => pinsRef.child(id).remove(),
+      getTag: id => db.ref(`tags/${id}`).once("value").then(snapshot => snapshot.val()),
+      listenTags: listener => tagsRef.on("value", snapshot => listener(snapshot.val())),
+      postTag: tag => $timeout().then(() => {
+        const newKeyId = tagsRef.push().key;
+        tagsRef.update({[newKeyId]:tag});
+      }),
+      deleteTag: id => tagsRef.child(id).remove(),
 
       getPost: id => db.ref(`posts/${id}`).once("value").then(snapshot => snapshot.val()),
       listenPosts: listener => postsRef.on("value", snapshot => listener(snapshot.val())),
@@ -39,41 +40,8 @@ angular.module('myApp')
       deleteUserPosts: id => postsRef.child(id).remove()
     };
 
-
-
-      // returning currentUser so it can be accessed through 'FirebaseFactory' in other files
 })
 
-    // return {
-    //   // register function
-    //   register (email, password) {
-    //     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    //       // Handle Errors here.
-    //       console.log("Error via register function", error.message);
-    //       var errorCode = error.code;
-    //       var errorMessage = error.message;
-    //     });
-    //   },
-    //   // login function
-    //   login (email, password) {
-    //     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    //       // Handle Errors here.
-    //       console.log("Error via login function", error.message);
-    //       var errorCode = error.code;
-    //       var errorMessage = error.message;
-    //     });
-    //   },
-      // logout (email, password) {
-      //   firebase.auth().signOut().catch(function(error) {
-      //     // Handle Errors here.
-      //     console.log("Error via logout function", error.message);
-      //     var errorCode = error.code;
-      //     var errorMessage = error.message;
-      //   });
-      // },
-
-
-    // }
 
 
 

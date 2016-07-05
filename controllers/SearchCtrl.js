@@ -1,6 +1,6 @@
-'use strict'
+ 'use strict'
 angular.module('myApp')
-  .controller('SearchCtrl', function($scope, SearchFactory, PostFactory, FirebaseFactory, $timeout){
+  .controller('SearchCtrl', function($scope, SearchFactory, PostFactory, FirebaseFactory, $timeout, setVenueFactory){
     const search = this;
 
     search.heading = 'find a restaurant';
@@ -8,10 +8,10 @@ angular.module('myApp')
 
     // Listener that fires get user on logout or login state of change
     firebase.auth().onAuthStateChanged(function(user) {
-      console.log("fired state of change function on FirebaseFactory.js");
+      // console.log("fired state of change function on FirebaseFactory.js");
       if (user) {
         search.currentUser = user;
-        console.log("user", search.currentUser);
+        // console.log("user", search.currentUser);
 
       } else {
         currentUser = null;
@@ -19,15 +19,15 @@ angular.module('myApp')
     });
 
     $scope.fetch = function (){
-      console.log("click")
+      // console.log("click")
       SearchFactory.getAPISearch($scope.name, $scope.near)
       .then(
         function (response) {
           $scope.details = response
-          console.log("response", response);
+          // console.log("response", response);
         })
     }
     search.chooseVenue = (restaurant) => {
-      PostFactory.setVenue(restaurant);
+      setVenueFactory.setVenue(restaurant);
     }
   })

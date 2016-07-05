@@ -1,16 +1,16 @@
 'use strict'
 angular.module('myApp')
-  .controller('PostCtrl', function($scope, $http, PostFactory) {
+  .controller('PostCtrl', function($scope, $http, PostFactory, setVenueFactory, TagFactory, FirebaseFactory, $timeout) {
     const post = this;
     post.heading = 'create a post';
-    post.venueName = PostFactory.getVenue();
+    post.venueName = setVenueFactory.getVenue();
 
     // Listener that fires get user on logout or login state of change
     firebase.auth().onAuthStateChanged(function(user) {
-      console.log("fired state of change function on FirebaseFactory.js");
+      // console.log("fired state of change function on FirebaseFactory.js");
       if (user) {
         post.currentUser = user;
-        console.log("user", post.currentUser);
+        // console.log("user", post.currentUser);
 
       } else {
         currentUser = null;
@@ -18,31 +18,44 @@ angular.module('myApp')
     });
 
     $scope.postVenueName = function(venueName) {
-      console.log(venueName);
+      // console.log(venueName);
 
       post.venueName = venueName
       // console.log(post.venueName );
       // console.log(post );
     };
 
-    // post.editing = false;
-    // let editKey = null;
+    post.goToPost = (postId) => {
+      TagFactory.setPostId(postId);
+      $location.path("/tags");
+    };
 
-    // PostFactory.listenPost(data => {
-    //   post.list = data;
-    //   $timeout();
-    // });
+    post.submit = () => PostFactory.createPost(post.newPost).then(() => post.newPost = null);
+    post.deletePost = (postId) => PostFactory.removePost(postId);
+    post.editPost = () => {
 
-    // post.submit = () => PostFactory.createPost(post.newPost).then(() => post.newPost = null);
-    // post.delete = (key) => PostFactory.deletePost(key).then(() => post.newPost = null);
-    // post.update = () => PostFactory.updatePost(editKey, post.newPost);
-    // post.edit = (key, post) => {
-    //   post.editing = true;
-    //   editKey = key;
-    //   post.newPost = post;
-    //   PostFactory.deletePost(key);
-    // };
+    };
+
+    PostFactory.listenPosts(data => {
+      post.list = data;
+      $timeout();
+    });
 
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
