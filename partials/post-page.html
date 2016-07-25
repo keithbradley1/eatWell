@@ -33,15 +33,11 @@
                 <label for="title">Post</label>
                 <textarea ng-model="post.newPost.title" id='title' type="text" class="form-control" rows="3" placeholder="write your post here.." ></textarea>
                 <div class="col-md-1"></div>
-                <a href="#/" class="btn btn-danger col-md-2">Cancel</a>
-                <div class="col-md-1"></div>
-                <button type="submit" class="btn btn-primary col-md-2">Submit</button>
-                <div class="col-md-2"></div>
               </div>
             </div>
           </div>
-        </form>
-        <form name="form" ng-submit="tags.submit()">
+<!--         </form>
+        <form name="form" ng-submit="tags.submit()"> -->
           <div class="container">
             <div class="row">
               <div class="form-group">
@@ -81,9 +77,13 @@
                 <div class="col-md-1"></div>
                 <a href="#/" class="btn btn-danger col-md-2">Cancel</a>
                 <div class="col-md-1"></div>
+                <button type="submit" class="btn btn-primary col-md-2">Submit</button>
+                <div class="col-md-2"></div>
+           <!--      <a href="#/" class="btn btn-danger col-md-2">Cancel</a>
+                <div class="col-md-1"></div>
                 <button type="submit" class="btn btn-primary col-md-2" ng-hide="tags.editing">Submit</button>
                 <button class="btn btn-success col-md-2" ng-show="tags.editing">Update</button>
-              </div>
+              </div> -->
             </div>
           </div>
         </form>
