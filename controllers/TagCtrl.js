@@ -1,5 +1,5 @@
 angular.module("myApp")
-  .controller("TagCtrl", function(TagFactory, $timeout) {
+  .controller("TagCtrl", function(TagFactory, $timeout, PostFactory) {
     const tags = this;
 
     tags.editing = false;
