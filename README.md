@@ -19,34 +19,24 @@ pulls from the foursquare API
 
 ### Example
 ---
-![Light Example](/readme_images/light_example.png)
+![Screen Shot](/readme_pics/eatWell_screenshot.png)
 
 ### Motivation
 ---
 
-The motivation behind this project is to scan the presidential tweets and help citizens make a more conscious and informed decision for the Fall 2016 election.
+This project comes from my personal experience dinning out and having trouble with finding on menu options for my personal dietary restrictions and needs. As well it comes from the same type experiences with so many of my friends and family and the lack of clarity to eat at a restaurant and know fully whether the food meets their personal dietary needs.
 
 ### Installation
 ---
-If you're on Mac OS X, consider installing with [Homebrew](https://github.com/yyuu/pyenv#homebrew-on-mac-os-x). Run the command ```$ python --version``` from your command line , we recommend Python 3.3.6
+http-server
+bower
+angularJS
 
-If you do not have pyenv use this [link](https://github.com/yyuu/pyenv#homebrew-on-mac-os-x) to install.
-
-This project was built using Python 3.3, click [here](https://www.python.org/download/releases/3.3.0/) to install this version.
-
-Once you have Python 3.3 installed you can pull down our code by using the following commands:
-- ```$ git clone https://github.com/nss-day-cohort-13/language-analyzer-lazer-powered-cthulhu.git```
-- ```$ cd language-analyzer-lazer-powered-cthulhu```
-
-### Test the code
+### running the app
 ---
-We implemented test driven development in this project. First we wrote a complete test suite for each of our modules. The test suite provided the framework and planning for the logic and implementation. Here is an example of passing tests used to assign values to the behvior predictor module.
-
-![Behavior Tests Passing](/readme_images/test_file_screen_shot.png)
-
-##### To run a test file for yourself:
-Type 'python' to start the python interpreter then the test file name you want to run. Here’s an example of running the behavior_predictor test file: ➜
-``` python test_behavior_predictor.py -v ```
+in the command line be sure to cd to the eatWell directory
+once in the directory type the http-server command to run you local server
+in your web browser (preferably chrome) type local_host8080 to access the app in your local server s
 
 ### Contributors
 ---
