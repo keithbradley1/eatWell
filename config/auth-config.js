@@ -4,12 +4,12 @@ angular.module('myApp')
       .when('/login', {
         controller: 'LoginCtrl',
         controllerAs: 'auth',
-        templateUrl: '/partials/login.html'
+        templateUrl: 'partials/login.html'
       })
       .when('/create-user', {
         controller: 'RegisterCtrl',
         controllerAs: 'auth',
-        templateUrl: '/partials/login.html'
+        templateUrl: 'partials/login.html'
       })
       .when("/logout", {
         controller: "LogoutCtrl"

@@ -11,7 +11,7 @@ angular.module('myApp')
       .when('/search', {
         controller: 'SearchCtrl',
         controllerAs: 'search',
-        templateUrl: '/partials/search.html'
+        templateUrl: 'partials/search.html'
       })
       .when("/tags", {
         controller: "TagCtrl",
