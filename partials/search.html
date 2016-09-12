@@ -8,7 +8,7 @@
     </div>
     <div class="col-sm-3">
       <nav class="">
-        <a ng-click="auth.signOut()" href="/#/auth"><p>logout</p></a>
+        <a ng-click="auth.signOut()" href="#/auth"><p>logout</p></a>
         <h4 class="">{{search.currentUser.email}}</h4>
       </nav>
     </div>
@@ -29,7 +29,7 @@
         <button class="btn" type="submit">Submit</button>
       </form>
       <div class="api-results" ng-repeat="venue in details.data.response.venues | limitTo:4">
-        <a ng-click="search.chooseVenue(venue.name)" href="/#/post-page"><p>{{venue.name}} at {{venue.location.address}}</p></a>
+        <a ng-click="search.chooseVenue(venue.name)" href="#/post-page"><p>{{venue.name}} at {{venue.location.address}}</p></a>
       </div>
     </div>
   </div>
