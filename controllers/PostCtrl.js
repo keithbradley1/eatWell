@@ -27,7 +27,7 @@ angular.module('myApp')
 
     post.goToPost = (postId) => {
       TagFactory.setPostId(postId);
-      $location.path("/tags");
+      $location.path("tags");
     };
 
     post.submit = () => PostFactory.createPost(post.newPost).then(() => post.newPost = null);

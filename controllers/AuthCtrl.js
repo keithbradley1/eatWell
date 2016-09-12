@@ -10,7 +10,7 @@ angular.module('myApp')
       AuthFactory.login(auth.user.email, auth.user.password)
         .then(user => {
           PostFactory.setUserId(user.uid);
-          $location.path("/login");
+          $location.path("login");
           $timeout();
         }).catch(alert);
       }

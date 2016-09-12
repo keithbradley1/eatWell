@@ -7,7 +7,7 @@ angular.module("myApp")
       AuthFactory.register(auth.user.email, auth.user.password)
         .then(user => {
           PostFactory.setUserId(user.uid);
-          $location.path("/search");
+          $location.path("search");
           $timeout();
         }).catch(alert);
   });
