@@ -1,5 +1,43 @@
 # eatWell
 
+### Here's a quick walk through my eatWell ap for reviewing food and including tags for dietary restrictions.
+
+### Landing and login or Register to the eatWell app
+---
+
+Welcome to a brief summary of this app. We have the landing page here with a choice of register or login.
+---
+![Screen Shot](/readme_pics/landing.png)
+---
+
+Next we have the register page.
+---
+![Screen Shot](/readme_pics/register.png)
+---
+
+### Venue Search Result
+---
+Now we see the user has enteres a search for Cancun Restaurant in Nashville and we got back a list of venues from the FourSquare API.
+---
+![Screen Shot](/readme_pics/venue_search_result.png)
+---
+Next the user will pick the right venue result and write about their dining experience.
+
+### Food Review
+---
+Now the user will write a little about the food they ate. They also write custom tags and can select standard tags for their dietary choices.
+---
+![Screen Shot](/readme_pics/food_review_with_tags.png)
+---
+
+### Save the review
+---
+The food review has been saved.
+---
+![Screen Shot](/readme_pics/saved_food_review.png)
+---
+
+
 ### Summary
 ---
 eatWell is a food experience review, dietary optimizer assistant, mobile responsive, user source, Foursquare and AngularJS powered web application.
@@ -17,9 +55,6 @@ AngularJS framework is the essential toolbase used for the front-end side and Fi
 ##### How it works:
 pulls from the foursquare API
 
-### Example
----
-![Screen Shot](/readme_pics/eatWell_screenshot.png)
 
 ### Motivation
 ---
