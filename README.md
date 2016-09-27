@@ -1,8 +1,6 @@
 # eatWell
 
-### Here's a quick walk through my eatWell ap for reviewing food and including tags for dietary restrictions.
-
-### Landing and login or Register to the eatWell app
+### Landing and Login
 ---
 
 Welcome to a brief summary of this app. We have the landing page here with a choice of register or login.
